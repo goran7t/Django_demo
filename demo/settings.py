@@ -55,7 +55,7 @@ ROOT_URLCONF = 'demo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +119,27 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+### EMAIL CONFIGURATION
+#see: docs.djangoproject.com/en/dev/ref/settings/#email-backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+#EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.live.com'
+
+#password used to login
+EMAIL_HOST_PASSWORD = 'password'
+
+#email address used to login
+EMAIL_HOST_USER = 'user@outlook.com'
+
+#EMAIL_PORT = 25
+EMAIL_PORT = 587
+
+EMAIL_SUBJECT_PREFIX = 'django'
+
+EMAIL_USE_TLS = True
+
+SERVER_EMAIL = EMAIL_HOST_USER
+
+### END EMAIL CONFIGURATION
